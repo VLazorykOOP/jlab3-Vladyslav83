@@ -1,19 +1,15 @@
-// Abstract base class
-abstract class Number {
-    // Abstract methods for arithmetic operations
-    public abstract double add(double num);
-    public abstract double subtract(double num);
-    public abstract double multiply(double num);
-    public abstract double divide(double num);
+// Interface for Number
+interface Number {
+    double add(double num);
+    double subtract(double num);
+    double multiply(double num);
+    double divide(double num);
 
-    // Method to display data about the object
-    public void show() {
-        System.out.println("Class: " + this.getClass().getSimpleName());
-    }
+    void show();
 }
 
 // Derived class for Integer (whole number)
-class IntegerNumber extends Number {
+class IntegerNumber implements Number {
     private int value;
 
     public IntegerNumber(int value) {
@@ -47,13 +43,13 @@ class IntegerNumber extends Number {
 
     @Override
     public void show() {
-        super.show();
+        System.out.println("Class: " + this.getClass().getSimpleName());
         System.out.println("Value: " + value);
     }
 }
 
 // Derived class for Real (real number)
-class RealNumber extends Number {
+class RealNumber implements Number {
     private double value;
 
     public RealNumber(double value) {
@@ -87,12 +83,12 @@ class RealNumber extends Number {
 
     @Override
     public void show() {
-        super.show();
+        System.out.println("Class: " + this.getClass().getSimpleName());
         System.out.println("Value: " + value);
     }
 }
 
-public class Main {
+public class NumberApp {
     public static void main(String[] args) {
         // Creating objects of the specified entities
         Number[] numbers = new Number[3];
